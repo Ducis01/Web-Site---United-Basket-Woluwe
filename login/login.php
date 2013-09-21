@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login to United Basket Woluwe Member Center</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    </head>
+    <body>
+        <h2>Login Page</h2>
+
+		<script type="text/javascript" src="../script/sha512.js"></script>
+		<script type="text/javascript" src="../script/forms.js"></script>
+		<?php
+			if(isset($_GET['error'])) {
+				//Set error Message if there was a problem in the login attempt
+				 
+				echo 'Error Logging In !';
+				echo $_GET['error'];
+			}
+		?>
+         
+        <table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
+        <tr>
+        <form action="process_login.php" method="post" name="login_form">
+        <td>
+        <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
+        <tr>
+        <td colspan="3"><strong>Member Login </strong></td>
+        </tr>
+        <tr>
+        <td width="78">Email</td>
+        <td width="6">:</td>
+        <td width="294"><input type="email" name="email" autofocus/></td>
+        </tr>
+        <tr>
+        <td>Password</td>
+        <td>:</td>
+        <td><input type="password" name="p" id="password"/></td>
+        </tr>
+        <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td><input type="button" value="Login" onclick="formhash(this.form, this.form.password);" /></td>
+        </tr>
+        </table>
+        </td>
+        </form>
+        </tr>
+        </table>
+
+    </body>
+</html>
