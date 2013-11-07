@@ -19,17 +19,6 @@
 		<p >Si vous souhaitez inscrire votre enfant auprès de notre club, nous vous invitons à compléter soigneusement le formulaire d'inscription ci-dessous (tous les champs, à l'exception des 2 derniers qui sont facultatifs, doivent être remplis). Ce formulaire ne doit pas être complété par les joueurs déjà affiliés au club.<br>
 		</p>
 		
-		
-		<?php
-			
-			//$salt = mcrypt_create_iv(128, MCRYPT_DEV_RANDOM);
-			
-			
-			
-			//echo $salt;
-		
-		?>
-		
 		<!-- script include encryption/majeur-->
 		<script type="text/javascript" src="../script/sha512.js"></script>
 		<script type="text/javascript" src="../script/forms.js"></script>
@@ -48,13 +37,13 @@
         <tr>
 	        <td width="278">Prénom du Joueur</td>
 	        <td width="6">:</td>
-	        <td width="294"><input type="text" name="name" /></td>
+	        <td width="294"><input type="text" name="pName" id="pName"/></td>
         </tr>
 
         <tr>
 	        <td>Nom du Joueur</td>
 	        <td>:</td>
-	        <td><input type="text" name="p" id="surname"/></td>
+	        <td><input type="text" name="pSurname" id="pSurname"/></td>
         </tr>
 
 		                
@@ -62,7 +51,7 @@
 	        <td>Genre</td>
 	        <td>:</td>
 	        <td>
-            <select>
+            <select name="pGender" id="pGender">
             	<option value="null"> - - </option>
 				<option value="male">Homme</option>
 				<option value="female">Femme</option>
@@ -74,7 +63,7 @@
 		<tr>
 	        <td>Date de naissance de votre enfant</td>
 	        <td>:</td>
-	        <td><input type="text" id="datepicker" /></td>
+	        <td><input type="text" id="datepicker" name="pBirth" /></td>
         </tr>
         
         <!-- Info of parent player if underaged -->
@@ -82,16 +71,40 @@
         <tr id="ifnotmajeurName" style="display:none;">
 	        <td>Nom du représentant légal</td>
 	        <td>:</td>
-	        <td><input type="text" name="other" id="other"/></td>
+	        <td><input type="text" name="tName" id="tName"/></td>
         </tr>       
 
         <tr id="ifnotmajeurSurName" style="display:none;">
 	        <td>Prénom du représentant légal</td>
 	        <td>:</td>
-	        <td><input type="text" name="other" id="other"/></td>
-        </tr> 
+	        <td><input type="text" name="tSurname" id="tSurname"/></td>
+        </tr>
         
-		<tr id="ifnotmajeurAdresDif" style="display:none;">
+        <tr>
+	        <td>Email</td>
+	        <td>:</td>
+	        <td><input type="text" name="pEmail" id="pEmail"/></td>
+        </tr>
+
+        <tr>
+	        <td>Adresse (rue, numéro, boite)</td>
+	        <td>:</td>
+	        <td><input type="text" name="pStreet" id="pStreet"/></td>
+        </tr>
+
+        <tr>
+	        <td>Code Postal</td>
+	        <td>:</td>
+	        <td><input type="text" name="pCP" id="pCP"/></td>
+        </tr>
+
+        <tr>
+	        <td>Localité</td>
+	        <td>:</td>
+	        <td><input type="text" name="pLocality" id="pLocality"/></td>
+        </tr>
+        
+        <tr id="ifnotmajeurAdresDif" style="display:none;">
 	        <td>Adresse du représentant différente de celle du joueur ?</td>
 	        <td>:</td>
 	        <td><input type="checkbox" name="checkAddress" id="adressCheckbox" /></td>
@@ -102,87 +115,51 @@
         <tr id="ifnotmajeurParentAdres" style="display:none;">
 	        <td>Adresse (rue, numéro, boite) du tuteur</td>
 	        <td>:</td>
-	        <td><input type="text" name="other" id="street"/></td>
+	        <td><input type="text" name="tStreet" id="tStreet"/></td>
         </tr>
 
         <tr id="ifnotmajeurParentCP" style="display:none;">
 	        <td>Code Postal du tuteur</td>
 	        <td>:</td>
-	        <td><input type="text" name="cp" id="cp"/></td>
+	        <td><input type="text" name="tCP" id="tCP"/></td>
         </tr>
 
         <tr id="ifnotmajeurParentLoc" style="display:none;">
 	        <td>Localité du tuteur</td>
 	        <td>:</td>
-	        <td><input type="text" name="other" id="other"/></td>
-        </tr>
-        
-        <tr>
-	        <td>Email</td>
-	        <td>:</td>
-	        <td><input type="text" name="other" id="email"/></td>
-        </tr>
-
-        <tr>
-	        <td>Adresse (rue, numéro, boite)</td>
-	        <td>:</td>
-	        <td><input type="text" name="other" id="street"/></td>
-        </tr>
-
-        <tr>
-	        <td>Code Postal</td>
-	        <td>:</td>
-	        <td><input type="text" name="cp" id="cp"/></td>
-        </tr>
-
-        <tr>
-	        <td>Localité</td>
-	        <td>:</td>
-	        <td><input type="text" name="other" id="other"/></td>
+	        <td><input type="text" name="tLocality" id="tLocality"/></td>
         </tr>
         
         <tr>
         <!-- Add JQuery for additionnal buttons -->
 	        <td>Telephone</td>
 	        <td>:</td>
-	        <td><input type="text" name="other" id="other"/></td>
+	        <td><input type="text" name="pPhone" id="pPhone"/></td>
         </tr>
         
         <tr>
-	        <td>Nom de votre enfant</td>
+	        <td>Numéro national ( voir carte SIS ) ou passeport </td>
 	        <td>:</td>
-	        <td><input type="text" name="other" id="other"/></td>
-        </tr>
-        
-        <tr>
-	        <td>Numero national ( voir carte SIS ) ou passeport </td>
-	        <td>:</td>
-	        <td><input type="text" name="other" id="other"/></td>
+	        <td><input type="text" name="pID" id="pID"/></td>
         </tr>
                 
         <tr>
-	        <td>Nationalite</td>
+	        <td>Nationalité</td>
 	        <td>:</td>
-	        <td><input type="text" name="other" id="other"/></td>
+	        <td><input type="text" name="pNationality" id="pNationality"/></td>
         </tr>
         
         <tr>
 	        <td>Ville de Naissance</td>
 	        <td>:</td>
-	        <td><input type="text" name="other" id="other"/></td>
-        </tr>
-        
-                <tr>
-	        <td>Nationalite</td>
-	        <td>:</td>
-	        <td><input type="text" name="other" id="other"/></td>
+	        <td><input type="text" name="pBirthPlace" id="pBirthPlace"/></td>
         </tr>
         
         <tr>
-	        <td>Votre enfant a-t-il deja joue au basket ?</td>
+	        <td>Votre enfant a-t-il déjà joue au basket ?</td>
 	        <td>:</td>
 	        <td>
-		    	<select>
+		    	<select name="pPlay" id="pPlay">
 				<option value="no">Non</option>
 				<option value="yes">Oui</option>
 				</select>
@@ -192,8 +169,15 @@
         <tr>
 	        <td>Si oui, a quel club est-il actuellement ou était-il affilie ? </td>
 	        <td>:</td>
-	        <td><input type="text" name="other" id="other"/></td>
+	        <td><input type="text" name="message" id="message"/></td>
         </tr>
+        
+		<tr>
+	        <td>Mot de passe</td>
+	        <td>:</td>
+	        <td><input type="password" name="p" id="password"/></td>
+        </tr>
+        
 
         <tr>
         <td>&nbsp;</td>

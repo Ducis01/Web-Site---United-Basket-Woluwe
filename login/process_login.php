@@ -9,7 +9,7 @@
 	   	   
 	   if(login($email, $password, $mysqli) == true) {
 	      	// Login success
-		  	header( "refresh:1;url=login.php" );
+		  	header( "refresh:1;url=login.html" );
 		  	echo 'Success: You have been logged in!';
 
 

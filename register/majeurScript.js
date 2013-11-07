@@ -1,4 +1,9 @@
 $(function() {
+	
+	// 	!! SPECIFIC TO FILE : REGISTER.HTML !!			
+	
+	//If the new player is underaged, add specific box for
+	//the legal tutor.
 				
 	$( "#datepicker" ).datepicker(
 	{
@@ -29,6 +34,9 @@ $(function() {
 		}
 	});
 	
+	//Function for hide or not the supplement adress boxes for
+	//a diffent adress of the legal tutor.
+	
 	$('#adressCheckbox').click(function(){
 	
 		// If the parent adress is ! from player,
@@ -38,9 +46,9 @@ $(function() {
        		$("#ifnotmajeurParentCP").show();
        		$("#ifnotmajeurParentLoc").show();
 	   	} else {
-        	$("#ifnotmajeurParentAdres").hide();
-        	$("#ifnotmajeurParentCP").hide();
-        	$("#ifnotmajeurParentLoc").hide();
+	   		$("#ifnotmajeurParentAdres").hide();
+	   		$("#ifnotmajeurParentCP").hide();
+	   		$("#ifnotmajeurParentLoc").hide();
 		}
 	});
 });

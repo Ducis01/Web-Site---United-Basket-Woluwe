@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<!DOCTYPE html>
+<html>
     <head>
         <title>Ceci est une page de test avec des balises PHP</title>
         <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -21,11 +21,11 @@
             $usr    = "root";
             $mdp    = "root";
 
-            $link = mysqli_connect($bdd, $usr, $mdp,"unitedbasketwoluwebe1") or die("Error " . mysqli_error($link));
+            $link = mysqli_connect($bdd, $usr, $mdp,"unitedbasketwoluwebe") or die("Error " . mysqli_error($link));
 
             //consultation:
 
-            $query = "SELECT * FROM News" or die("Error in the consult.. " . mysqli_error($link));
+            $query = "SELECT * FROM PLAYER_DATA" or die("Error in the consult.. " . mysqli_error($link));
 
             //execute the query.
 
@@ -47,8 +47,9 @@
 
             while($row = mysqli_fetch_array($result)) {
                  echo $row["id"] . "<br>";
-                 echo $row["titre"] . "<br>";
-                 echo $row["text"] . "<br>";
+                 echo $row["name"] . "<br>";
+                 echo $row["surname"] . "<br>";
+                 echo $row["birthdate"] . "<br>";
             }
 
             if (!mysqli_free_result($result));
