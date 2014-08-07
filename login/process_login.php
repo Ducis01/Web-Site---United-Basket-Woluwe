@@ -15,7 +15,7 @@
 
 	   } else {
 	      	// Login failed
-		  	header('Location: ./login.php?error=1');
+		  	header('Location: ./login.html?error=1');
 	   }
 	} else { 
 	   
